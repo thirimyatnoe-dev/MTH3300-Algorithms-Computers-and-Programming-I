@@ -1,0 +1,8 @@
+letter = "madam"
+def isPalindrome():
+    for i in range(len(letter)):
+        if letter[i] != letter[-i-1]:
+            return False
+    return True
+
+print(isPalindrome())
