@@ -1,0 +1,37 @@
+
+import random
+
+num_of_plays = 10 ** 6
+
+earnings_over_all_plays = 0
+num_successes = 0 
+x = int(input()) # in one play, to keep the amount earned, we must get > x dollars
+##################### DO NOT MODIFY ANY CODE ABOVE #######################################
+winning = 0
+for n in range(num_of_plays): #1000,1000 plays
+    earning_in_one_play = 0 #has to be reset for each play
+    for r in range(4): #four rolls OR one play
+        roll = random.randrange(1,7) #6 possible outcomes for one roll
+        if roll <= 3:
+            earning = 1
+        elif roll == 4:
+            earning = 5
+        elif roll == 5:
+            earning = 10
+        elif roll == 6:
+            earning = 50
+
+        earning_in_one_play += earning
+        
+    if earning_in_one_play > x: 
+        winning = earning_in_one_play
+        num_successes +=1
+    else:
+        winning = - 100
+    
+    earnings_over_all_plays += winning
+
+
+##################### DO NOT MODIFY ANY CODE BELOW #######################################
+print(f'{num_successes/num_of_plays:.1f}') # estimate of the probability of winning > x in a play of the game
+print(f'{earnings_over_all_plays/num_of_plays:.0f}') # estimate of the expected value of the amount won in a single play
