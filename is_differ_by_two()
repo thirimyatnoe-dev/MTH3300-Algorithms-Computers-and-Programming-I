@@ -1,0 +1,8 @@
+differ_by_two = False
+prev = int(input("Enter a number: "))
+while not differ_by_two:
+    curr = int(input("Enter a number"))
+    if curr - prev == 2 or prev - curr == 2:
+        differ_by_two = True
+    prev == curr
+print(prev,curr)
