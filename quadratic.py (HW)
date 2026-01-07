@@ -1,0 +1,44 @@
+import math
+
+#user input
+a = float(input("Enter x^2 coefficient: "))
+b = float(input("Enter x^1 coefficient: "))
+c = float(input("Enter x^0 coefficient: "))
+
+#discriminent
+d = b*b - (4*a*c)
+
+#if coefficient is 0, don't move forward to the calculation
+if a == 0:
+    print("The equation is not quadratic")
+
+#Two real solutions
+elif d> 0:
+    x1 = (- b + math.sqrt(d))/(2*a)
+    x2 = (- b - math.sqrt(d)) /(2*a)
+    #to print the smaller value first
+    if x1<x2:
+        firstx = x1
+        secx = x2
+    else:
+        firstx = x2
+        secx = x1
+    print(f"TWO REAL SOLUTIONS: x = {firstx:.4f} and x = {secx:.4f}")
+
+#One solution
+elif d == 0:
+    x = -b / (2*a)
+    print(f"ONE SOLUTION: x = {x:.4f}")
+
+#Complex solutions
+elif d<0:
+    num = -b / (2*a)
+    imaginary = (math.sqrt(-d)) / (2*a)
+
+    if imaginary <0:
+        imaginary = - imaginary
+    else: 
+        imaginary = imaginary
+    
+    print (f"COMPLEX SOLUTIONS: x = {num:.4f} - {imaginary:.4f}i and x = {num:.4f} + {imaginary:.4f}i")
+   
